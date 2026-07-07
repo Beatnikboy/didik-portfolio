@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
             printTerminalLine(`OPERATOR BIO LOG:
   - Name: Didik Rabihni
   - Education: S1 Teknik Informatika (Universitas Bina Nusantara, 2022-Present)
-  - Degree: Bachelor of Science (B.Sc. in Cyber Security)
+  - Degree: Sarjana Komputer (S.Kom in Cyber Security)
   - Focus: Cybersecurity, Systems Exploitation, SIEM & Lab Audits`);
             document.querySelector('section:nth-of-type(1)').scrollIntoView({ behavior: 'smooth' });
         } 
