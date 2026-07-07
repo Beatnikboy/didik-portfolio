@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Didik Rabihni | Cyber Security Portfolio</title>
+    <meta name="description" content="Didik Rabihni - Cybersecurity student at Bina Nusantara University. Interactive cyber themed portfolio showcasing penetration testing, SIEM deployment, Active Directory labs, and more.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- CRT Overlay Effects -->
+    <div class="crt-overlay"></div>
+    <div class="crt-scanlines"></div>
+
+    <!-- Matrix Background Rain -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- AUDIO CONTROLS (Floating Sound indicator) -->
+    <div class="sound-control-wrapper" id="sound-control-wrapper">
+        <button id="sound-toggle-btn" class="cyber-btn-mini" aria-label="Toggle Sound">
+            <span class="icon">🔇</span> <span class="label">MUTED</span>
+        </button>
+    </div>
+
+    <!-- BOOT SCREEN / INITIAL DECRYPTION SCREEN -->
+    <div class="boot-screen" id="boot-screen">
+        <div class="boot-container">
+            <div class="boot-header">
+                <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="boot-title">SECURE_BOOT_SEQUENCE_v1.1.0</div>
+            </div>
+            <div class="boot-log" id="boot-log">
+                <!-- Appended by JS -->
+                <p class="log-line">Initializing secure connection...</p>
+            </div>
+            <div class="boot-interaction" id="boot-interaction" style="display: none;">
+                <div class="decrypt-panel">
+                    <h2 class="decrypt-title" data-decrypt="ACCESS DECRYPTED">############ #########</h2>
+                    <p class="decrypt-subtitle">Redirecting to operator console...</p>
+                    <div class="auto-redirect-spinner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN PORTFOLIO DASHBOARD -->
+    <div class="dashboard-wrapper hidden" id="dashboard-wrapper">
+        <header class="main-header">
+            <div class="header-left">
+                <div class="logo-area">
+                    <span class="logo-icon">⚡</span>
+                    <h1 class="logo-text" id="main-title" data-decrypt="DIDIK RABIHNI">DIDIK RABIHNI</h1>
+                </div>
+                <div class="badge status-badge glow-green-text">
+                    <span class="pulse-dot"></span> STATUS: SECURE_OPERATOR
+                </div>
+            </div>
+            <div class="header-middle">
+                <div class="ticker-wrap">
+                    <div class="ticker">
+                        <span class="ticker-item">// WAZUH_SIEM: ACTIVE_MONITORING</span>
+                        <span class="ticker-item">// COWRIE_HONEYPOT: ACTIVE</span>
+                        <span class="ticker-item">// INTERNSHIP: LINTASARTA_CYBERSECURITY</span>
+                        <span class="ticker-item">// ENVIRONMENT: ACTIVE_DIRECTORY_LAB</span>
+                        <span class="ticker-item">// LOCATION: KEBON_JERUK_DKI_JAKARTA</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="live-clock-panel">
+                    <span class="clock-label">SYS_TIME:</span>
+                    <span id="live-clock" class="clock-value">00:00:00</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- LEFT PANEL: IDENTITY CARD & PROFILE -->
+            <aside class="panel-left grid-panel">
+                <div class="panel-header">
+                    <div class="panel-title-container">
+                        <span class="panel-prefix">0x00</span>
+                        <h2 class="panel-title">OPERATOR_PROFILE</h2>
+                    </div>
+                    <span class="panel-tag">DB_ENTRY_8932</span>
+                </div>
+                
+                <div class="panel-body">
+                    <!-- Profile Photo with Cyber Overlays -->
+                    <div class="avatar-container">
+                        <div class="photo-frame">
+                            <img class="cyber-avatar-photo" src="DSC05158 crop.jpg" alt="Didik Rabihni Profile Photo">
+                            <div class="photo-scanner"></div>
+                        </div>
+                        <div class="glitch-overlay-text">OPERATOR_01</div>
+                    </div>
+
+                    <div class="bio-summary">
+                        <div class="bio-row">
+                            <span class="label">IDENTITY:</span>
+                            <span class="val">Didik Rabihni</span>
+                        </div>
+                        <div class="bio-row">
+                            <span class="label">SPECIALIZATION:</span>
+                            <span class="val text-highlight">Junior Cyber Security Engineer</span>
+                        </div>
+                        <div class="bio-row">
+                            <span class="label">AFFILIATION:</span>
+                            <span class="val">BINUS University</span>
+                        </div>
+                        <div class="bio-row">
+                            <span class="label">CAMPUS:</span>
+                            <span class="val">Kemanggisan</span>
+                        </div>
+                        <div class="bio-row">
+                            <span class="label">DEGREE:</span>
+                            <span class="val">B.Sc. (Cyber Security)</span>
+                        </div>
+                        <div class="bio-row">
+                            <span class="label">LOCATION:</span>
+                            <span class="val">Kebon Jeruk, Jakarta</span>
+                        </div>
+                    </div>
+
+                    <!-- Direct Quick Contacts -->
+                    <div class="action-segment">
+                        <div class="cv-download-area">
+                            <div class="progress-bar-container" id="cv-progress-container" style="display: none;">
+                                <div class="progress-label">DECRYPTING_CV_PAYLOAD... <span id="progress-pct">0%</span></div>
+                                <div class="progress-track">
+                                    <div class="progress-fill" id="cv-progress-fill"></div>
+                                </div>
+                            </div>
+                            <a id="cv-download-link" href="CV_Didik Rabihni-1.pdf" download="CV_Didik_Rabihni_Cybersecurity.pdf" style="display:none;"></a>
+                            <button class="cyber-btn full-width glow-green" id="decrypt-cv-btn">
+                                <span class="btn-text">📥 DECRYPT & DOWNLOAD CV</span>
+                            </button>
+                        </div>
+                        
+                        <div class="cyber-socials">
+                            <a href="https://www.linkedin.com/in/didik-rabihni-3a0600252" target="_blank" class="social-link" title="LinkedIn Profile">
+                                LINKEDIN
+                            </a>
+                            <a href="mailto:didik.rabihni@binus.ac.id" class="social-link" title="Email BINUS">
+                                BINUS_MAIL
+                            </a>
+                            <a href="mailto:d.rabihni@gmail.com" class="social-link" title="Email Personal">
+                                PERS_MAIL
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- RIGHT PANEL: DETAILED SECTIONS IN A SINGLE FLOW -->
+            <main class="panel-right">
+                <!-- SECTION 1: SUMMARY -->
+                <section class="grid-panel section-card">
+                    <div class="panel-header">
+                        <div class="panel-title-container">
+                            <span class="panel-prefix">0x01</span>
+                            <h2 class="panel-title">// SYS_SUMMARY</h2>
+                        </div>
+                        <span class="panel-tag">FILE: SUMMARY.LOG</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="cyber-card">
+                            <p>Saya adalah mahasiswa S1 Teknik Informatika di <strong class="text-white">Universitas Bina Nusantara (BINUS)</strong> angkatan 2022 dengan fokus peminatan di bidang Cybersecurity.</p>
+                            <p>Memiliki ketertarikan mendalam pada teknologi keamanan informasi, mitigasi risiko jaringan, serta selalu mengikuti tren industri keamanan siber terbaru. Saya memiliki kemauan tinggi untuk terus mempelajari teknologi baru, meningkatkan keterampilan teknis harian, siap menghadapi tantangan baru, serta berdedikasi bekerja keras guna mencapai target di bidang digital security.</p>
+                        </div>
+                        
+                        <div class="timeline-item mt-15">
+                            <div class="timeline-header">
+                                <span class="timeline-title font-bold text-white">S1 Teknik Informatika</span>
+                                <span class="timeline-date">Sep 2022 - Present</span>
+                            </div>
+                            <div class="timeline-subtitle text-muted">Bina Nusantara University, Jakarta, Indonesia</div>
+                            <ul class="timeline-bullets">
+                                <li>Menggunakan platform <span class="text-highlight">Hack The Box</span> untuk mendapatkan pengalaman langsung dalam penetration testing dan eksploitasi sistem keamanan.</li>
+                                <li>Aktif mengikuti platform <span class="text-highlight">CTF (Capture The Flag)</span> untuk mengasah kemampuan analitis dan problem-solving dalam menghadapi berbagai kerentanan siber.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 2: SKILLS MATRIX -->
+                <section class="grid-panel section-card">
+                    <div class="panel-header">
+                        <div class="panel-title-container">
+                            <span class="panel-prefix">0x02</span>
+                            <h2 class="panel-title">// SKILLS_MATRIX</h2>
+                        </div>
+                        <span class="panel-tag">FILE: SKILLS_VULN_PATCH.DB</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="skills-grid">
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-info">
+                                    <span class="skill-name">SIEM Deployment (Wazuh) & Logging</span>
+                                    <span class="skill-tier tier-simulated">SIMULATED_DEPLOYMENT</span>
+                                </div>
+                                <div class="skill-track-discrete">
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                </div>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-info">
+                                    <span class="skill-name">Active Directory (AD) Security & Lab Audit</span>
+                                    <span class="skill-tier tier-simulated">SIMULATED_DEPLOYMENT</span>
+                                </div>
+                                <div class="skill-track-discrete">
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                </div>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-info">
+                                    <span class="skill-name">Honeypot Systems (Cowrie Setup)</span>
+                                    <span class="skill-tier tier-simulated">SIMULATED_DEPLOYMENT</span>
+                                </div>
+                                <div class="skill-track-discrete">
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                </div>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-info">
+                                    <span class="skill-name">ELK Stack (Elasticsearch, Logstash, Kibana)</span>
+                                    <span class="skill-tier tier-simulated">SIMULATED_DEPLOYMENT</span>
+                                </div>
+                                <div class="skill-track-discrete">
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                </div>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-info">
+                                    <span class="skill-name">Penetration Testing & Exploitation</span>
+                                    <span class="skill-tier tier-lab">SIMULATED_LAB_TESTED</span>
+                                </div>
+                                <div class="skill-track-discrete">
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                    <span class="segment"></span>
+                                </div>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-info">
+                                    <span class="skill-name">Automation & Scripting (Bash & Python)</span>
+                                    <span class="skill-tier tier-code">CODE_AUTOMATION</span>
+                                </div>
+                                <div class="skill-track-discrete">
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tools-tags mt-15">
+                            <span class="tag-cyber">Hack The Box</span>
+                            <span class="tag-cyber">Wazuh SIEM</span>
+                            <span class="tag-cyber">Docker</span>
+                            <span class="tag-cyber">WSL2</span>
+                            <span class="tag-cyber">Cowrie Honeypot</span>
+                            <span class="tag-cyber">ELK Stack</span>
+                            <span class="tag-cyber">Active Directory Services</span>
+                            <span class="tag-cyber">XDR Integration</span>
+                            <span class="tag-cyber">Kali Linux</span>
+                            <span class="tag-cyber">Bash Scripting</span>
+                            <span class="tag-cyber">Python Scripting</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 3: EXPERIENCES -->
+                <section class="grid-panel section-card">
+                    <div class="panel-header">
+                        <div class="panel-title-container">
+                            <span class="panel-prefix">0x03</span>
+                            <h2 class="panel-title">// EXPERIENCES</h2>
+                        </div>
+                        <span class="panel-tag">FILE: LINTASARTA_INTERN_LOG.DAT</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="cyber-card">
+                            <div class="experience-header">
+                                <div class="experience-company">
+                                    <span class="company-name text-white font-bold">PT Aplikanusa Lintasarta</span>
+                                    <span class="badge badge-info">INTERNSHIP</span>
+                                </div>
+                                <div class="experience-period">3 Feb 2025 - 3 Feb 2026</div>
+                            </div>
+                            <div class="experience-role text-highlight">Cyber Intelligence Officer</div>
+                            <div class="experience-supervisor text-muted mb-15">Supervisor: Hendra Nuryuliansyah</div>
+                            
+                            <ul class="experience-bullets">
+                                <li><strong class="text-white">Active Directory Lab:</strong> Mendesain dan mengelola laboratorium privat menggunakan Active Directory Services untuk menguji risiko keamanan secara aman serta mensimulasikan serangan siber.</li>
+                                <li><strong class="text-white">Integrasi XDR:</strong> Mengintegrasikan solusi XDR (Extended Detection and Response) di lingkungan laboratorium privat guna meningkatkan visibilitas terhadap ancaman (threat visibility) dan mempercepat respons insiden.</li>
+                                <li><strong class="text-white">Otomatisasi Bash:</strong> Mengembangkan alat otomatisasi berbasis pemrograman Bash untuk merampingkan pengujian keamanan (security testing) dan eksploitasi di lingkungan Active Directory (AD).</li>
+                                <li><strong class="text-white">Distribusi Software Keamanan:</strong> Memeriksa dan mendistribusikan perangkat lunak keamanan kepada pelanggan Indosat Ooredoo.</li>
+                                <li><strong class="text-white">Honeypot & ELK Stack:</strong> Mengonfigurasi Cowrie Honeypots serta memanfaatkan ELK Stack untuk melacak dan menganalisis upaya akses ilegal melalui dashboard pemantauan real-time.</li>
+                                <li><strong class="text-white">Simulasi Hacking:</strong> Menguji keandalan sistem keamanan dengan melakukan simulasi teknik peretasan sistem (hacking techniques).</li>
+                                <li><strong class="text-white">Evaluasi Tools & Pelaporan:</strong> Mengevaluasi berbagai tools keamanan baru (seperti AI dan Endpoint Protection) serta menyusun laporan penelitian komprehensif dan panduan penggunaan ("how-to" guides).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 4: PROJECTS -->
+                <section class="grid-panel section-card">
+                    <div class="panel-header">
+                        <div class="panel-title-container">
+                            <span class="panel-prefix">0x04</span>
+                            <h2 class="panel-title">// PROJECT_SIEM</h2>
+                        </div>
+                        <span class="panel-tag">FILE: WAZUH_WSL2_SETUP.CFG</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="cyber-card">
+                            <div class="project-meta">
+                                <span class="project-tag">Category: Enterprise Security Monitoring</span>
+                                <span class="project-tag">Host OS: Windows Subsystem for Linux 2 (WSL2)</span>
+                            </div>
+                            <p class="mt-15">Mendeploy sistem monitoring keamanan open-source <strong>Wazuh (SIEM)</strong> menggunakan <strong>Docker containers</strong> di lingkungan Windows melalui WSL2.</p>
+                            
+                            <h4 class="sub-card-title text-white mt-15">// Key Achievements & Infrastructure Details:</h4>
+                            <ul class="project-bullets">
+                                <li>Mengonfigurasi server pemantauan keamanan terpusat dengan kontainer Docker untuk mengelola pengindeksan log (log indexing) dan visualisasi data secara efisien.</li>
+                                <li>Mengintegrasikan log keamanan dari berbagai node uji untuk mendeteksi anomali, serangan brute-force, dan perubahan file konfigurasi mencurigakan.</li>
+                                <li>Menyusun dashboard Wazuh terintegrasi untuk menyajikan informasi real-time mengenai status keamanan seluruh aset jaringan yang diawasi.</li>
+                            </ul>
+                            
+                            <div class="project-architecture mt-15">
+                                <div class="arch-box">
+                                    <div class="arch-title">WSL2 / Windows Host</div>
+                                    <div class="arch-body">
+                                        <div class="arch-node">Docker Engine</div>
+                                        <div class="arch-arrows">↓</div>
+                                        <div class="arch-sub-grid">
+                                            <div class="arch-node sub">Wazuh Manager</div>
+                                            <div class="arch-node sub">Wazuh Indexer</div>
+                                            <div class="arch-node sub">Wazuh Dashboard</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 5: CERTIFICATIONS & HONORS -->
+                <section class="grid-panel section-card">
+                    <div class="panel-header">
+                        <div class="panel-title-container">
+                            <span class="panel-prefix">0x05</span>
+                            <h2 class="panel-title">// CERTIFICATIONS_&_HONORS</h2>
+                        </div>
+                        <span class="panel-tag">FILE: CERTS_HONORS.LOG</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="cyber-card">
+                            <h3 class="card-title text-highlight">// PROFESSIONAL CERTIFICATIONS</h3>
+                            <div class="cert-item">
+                                <div class="cert-header">
+                                    <span class="cert-title text-white font-bold">Cyber Threat Management</span>
+                                    <span class="badge badge-info">Cisco</span>
+                                </div>
+                                <div class="cert-meta mt-15">
+                                    <span class="cert-id text-muted">Verification ID: CERT003783</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cyber-card mt-15">
+                            <h3 class="card-title text-highlight">// RECOGNITIONS & ATHLETICS</h3>
+                            <div class="honor-item">
+                                <div class="honor-header">
+                                    <span class="honor-title text-white font-bold">Participant at Rector Cup 2023</span>
+                                    <span class="honor-date text-muted">2023</span>
+                                </div>
+                                <div class="honor-subtitle text-highlight">Cabang E-Sports: Mobile Legends</div>
+                                <div class="honor-details text-muted mt-15">Mewakili tim mahasiswa jurusan dalam turnamen kompetitif tahunan BINUS University.</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 6: STUDENT ACTIVITIES & VOLUNTEERING -->
+                <section class="grid-panel section-card">
+                    <div class="panel-header">
+                        <div class="panel-title-container">
+                            <span class="panel-prefix">0x06</span>
+                            <h2 class="panel-title">// ACTIVITIES_&_VOLUNTEERING</h2>
+                        </div>
+                        <span class="panel-tag">FILE: ACTIVITIES_VOLUNTEER.DB</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="cyber-card">
+                            <h3 class="card-title text-highlight">// RELEVANT SEMINARS & ACADEMIC ENGAGEMENT</h3>
+                            <ul class="activity-bullets">
+                                <li><strong>GLS - IaC Implementation at Bank BRI (2024):</strong> Mempelajari arsitektur dan praktik automasi infrastruktur perbankan menggunakan metode Infrastructure as Code (IaC).</li>
+                                <li><strong>GLS - OOP Fundamentals (2025):</strong> Mengikuti seminar pengembangan berorientasi objek lanjut tentang Abstract Classes dan Interfaces dari School of Computer Science.</li>
+                                <li><strong>Blockchain Fundamental (2024):</strong> Seminar pengantar dasar-dasar keamanan dan algoritma konsensus rantai blok.</li>
+                                <li><strong>Career Readiness Programs (2025):</strong> Mengikuti rangkaian pembekalan karier bersama Auto2000, Bank Danamon (optimasi CV & profil LinkedIn), serta J&T Express (strategi interview).</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cyber-card mt-15">
+                            <h3 class="card-title text-highlight">// ENVIRONMENTAL & SOCIAL VOLUNTEERING</h3>
+                            <ul class="activity-bullets">
+                                <li><strong>Volunteer Greener Day (2024):</strong> Aksi sosial kepedulian lingkungan dan pengelolaan sampah di Jabodetabek bersama komunitas mahasiswa Teach For Indonesia (TFI).</li>
+                                <li><strong>Sosialisasi Autoimun @Mabes TNIAL:</strong> Menjadi relawan edukasi kesehatan masyarakat di Markas Besar Tentara Nasional Indonesia Angkatan Laut.</li>
+                                <li><strong>Kampanye Gerakan Anti-Bullying KAPAK (2022):</strong> Relawan sosialisasi pencegahan perundungan di tingkat sekolah dasar di Jabodetabek.</li>
+                                <li><strong>Pengecatan Trotoar Palmerah Barat & Isu Global (2022-2023):</strong> Relawan kebersihan lingkungan dan kampanye anti-polusi udara.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 7: INTERACTIVE CONSOLE -->
+                <section class="grid-panel section-card">
+                    <div class="panel-header terminal-window-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="panel-title-container">
+                            <span class="panel-prefix">0x07 // CLI://</span>
+                            <h2 class="panel-title">SECURE_SHELL_CONSOLE</h2>
+                        </div>
+                        <span class="terminal-env">guest@didik-rabihni:~</span>
+                    </div>
+
+                    <div class="terminal-body" id="terminal-body">
+                        <div class="terminal-output" id="terminal-output">
+                            <p class="output-line text-muted">Didik Rabihni CLI v1.2.0. Ready.</p>
+                            <p class="output-line">Type <span class="text-highlight">/help</span> or click shortcuts below to interact with the database.</p>
+                        </div>
+                        <form class="terminal-input-line" id="terminal-form">
+                            <span class="terminal-prompt">guest@didik-rabihni:~#</span>
+                            <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" placeholder="Type a command...">
+                            <span class="cursor-block"></span>
+                        </form>
+                    </div>
+
+                    <!-- Shortcut commands quick-grid -->
+                    <div class="terminal-shortcuts">
+                        <span class="shortcut-label">QUICK_RUN:</span>
+                        <button class="shortcut-btn" data-cmd="/help">/help</button>
+                        <button class="shortcut-btn" data-cmd="/about">/about</button>
+                        <button class="shortcut-btn" data-cmd="/skills">/skills</button>
+                        <button class="shortcut-btn" data-cmd="/exp">/exp</button>
+                        <button class="shortcut-btn" data-cmd="/projects">/projects</button>
+                        <button class="shortcut-btn" data-cmd="/certs">/certs</button>
+                        <button class="shortcut-btn" data-cmd="/activities">/activities</button>
+                        <button class="shortcut-btn" data-cmd="/clear">/clear</button>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+
+    </div>
+
+    <!-- Script triggers -->
+    <script src="script.js"></script>
+</body>
+</html>
