@@ -64,6 +64,7 @@
             <div class="header-middle">
                 <div class="ticker-wrap">
                     <div class="ticker">
+                        <span class="ticker-item">// SECUREVAULT: ZERO_KNOWLEDGE_E2EE</span>
                         <span class="ticker-item">// WAZUH_SIEM: ACTIVE_MONITORING</span>
                         <span class="ticker-item">// COWRIE_HONEYPOT: ACTIVE</span>
                         <span class="ticker-item">// INTERNSHIP: LINTASARTA_CYBERSECURITY</span>
@@ -266,6 +267,28 @@
                                     <span class="segment active"></span>
                                 </div>
                             </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-info">
+                                    <span class="skill-name">Cryptography & E2EE Design</span>
+                                    <span class="skill-tier tier-code">SECURE_DEVELOPMENT</span>
+                                </div>
+                                <div class="skill-track-discrete">
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                </div>
+                            </div>
+                            <div class="skill-bar-wrapper">
+                                <div class="skill-info">
+                                    <span class="skill-name">OWASP Top 10 & DAST Audit</span>
+                                    <span class="skill-tier tier-code">SECURE_DEVELOPMENT</span>
+                                </div>
+                                <div class="skill-track-discrete">
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                    <span class="segment active"></span>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="tools-tags mt-15">
@@ -280,6 +303,13 @@
                             <span class="tag-cyber">Kali Linux</span>
                             <span class="tag-cyber">Bash Scripting</span>
                             <span class="tag-cyber">Python Scripting</span>
+                            <span class="tag-cyber">Web Crypto API</span>
+                            <span class="tag-cyber">Zero-Knowledge</span>
+                            <span class="tag-cyber">SolidJS</span>
+                            <span class="tag-cyber">Fastify</span>
+                            <span class="tag-cyber">Drizzle ORM</span>
+                            <span class="tag-cyber">OWASP Top 10</span>
+                            <span class="tag-cyber">DAST Analysis</span>
                         </div>
                     </div>
                 </section>
@@ -323,12 +353,14 @@
                     <div class="panel-header">
                         <div class="panel-title-container">
                             <span class="panel-prefix">0x04</span>
-                            <h2 class="panel-title">// PROJECT_SIEM</h2>
+                            <h2 class="panel-title">// SECURITY_PROJECTS</h2>
                         </div>
-                        <span class="panel-tag">FILE: WAZUH_WSL2_SETUP.CFG</span>
+                        <span class="panel-tag">FILE: PORTFOLIO_PROJECTS.LOG</span>
                     </div>
                     <div class="panel-body">
+                        <!-- Project 1: Wazuh SIEM -->
                         <div class="cyber-card">
+                            <h3 class="card-title text-highlight" style="margin-bottom: 8px;">// PROJECT_01: Centralized SIEM Monitoring (Wazuh)</h3>
                             <div class="project-meta">
                                 <span class="project-tag">Category: Enterprise Security Monitoring</span>
                                 <span class="project-tag">Host OS: Windows Subsystem for Linux 2 (WSL2)</span>
@@ -352,6 +384,40 @@
                                             <div class="arch-node sub">Wazuh Manager</div>
                                             <div class="arch-node sub">Wazuh Indexer</div>
                                             <div class="arch-node sub">Wazuh Dashboard</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2: SecureVault -->
+                        <div class="cyber-card mt-15">
+                            <h3 class="card-title text-highlight" style="margin-bottom: 8px;">// PROJECT_02: SecureVault - Zero-Knowledge E2EE Storage</h3>
+                            <div class="project-meta">
+                                <span class="project-tag">Category: Cryptography & Application Security</span>
+                                <span class="project-tag">Stack: SolidJS + Fastify + SQLite / Drizzle ORM</span>
+                            </div>
+                            <p class="mt-15">Membangun platform penyimpanan dan pembagian berkas aman berskala mandiri dengan arsitektur <strong>Zero-Knowledge E2EE (End-to-End Encryption)</strong>. Kunci kriptografi sepenuhnya dikelola secara lokal pada browser pengguna tanpa pernah dikirimkan ke server.</p>
+                            
+                            <h4 class="sub-card-title text-white mt-15">// Key Cryptographic & Security Features:</h4>
+                            <ul class="project-bullets">
+                                <li><strong>Passwordless Challenge-Response:</strong> Otentikasi login menggunakan tanda tangan digital ECDSA (P-256) untuk mencegah serangan brute-force credential.</li>
+                                <li><strong>Hybrid Cryptography System:</strong> Enkripsi file menggunakan AES-GCM (256-bit) dan pembungkusan kunci (*key wrapping*) asimetris berbasis RSA-OAEP (2048-bit).</li>
+                                <li><strong>User-to-User Sharing & Public Share Link:</strong> Berbagi berkas antar-pengguna dengan enkripsi asimetris RSA, dan tautan berbagi publik menggunakan derivasi kunci PBKDF2 (100.000 iterasi).</li>
+                                <li><strong>OWASP Top 10:2025 Defensive Design:</strong> Terintegrasi dengan pertahanan anti-CSRF (Double-Submit), SQL Injection (Prepared Statements), IDOR, dan pemindaian malware bawaan via VirusTotal & MalwareBazaar API. Lulus 32 skenario pengujian DAST.</li>
+                            </ul>
+                            
+                            <div class="project-architecture mt-15">
+                                <div class="arch-box">
+                                    <div class="arch-title">SecureVault - Zero-Knowledge Architecture</div>
+                                    <div class="arch-body">
+                                        <div class="arch-node">Client (SolidJS Browser)</div>
+                                        <div class="arch-node sub" style="grid-column: span 3; font-size: 9px; color: var(--accent-yellow); margin-top: 2px;">Web Crypto API (ECDSA / RSA-OAEP / AES-GCM / PBKDF2)</div>
+                                        <div class="arch-arrows" style="margin: 2px 0;">↓ Encrypted Ciphertext & Public Keys Only ↓</div>
+                                        <div class="arch-sub-grid">
+                                            <div class="arch-node sub">Fastify API</div>
+                                            <div class="arch-node sub">Drizzle ORM</div>
+                                            <div class="arch-node sub">SQLite DB</div>
                                         </div>
                                     </div>
                                 </div>

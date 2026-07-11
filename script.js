@@ -354,6 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
             printTerminalLine(`LOADING SKILLS MATRIX DATA...
   - [SIMULATED_DEPLOYMENT] Wazuh SIEM, AD Lab Audit, Cowrie Honeypots, ELK Stack Configuration
   - [SIMULATED_LAB_TESTED] Penetration Testing & Exploitation (HTB, CTF platforms)
+  - [SECURE_DEVELOPMENT] Cryptography & E2EE Design, OWASP Top 10 & DAST Audit
   - [CODE_AUTOMATION] Automation & Scripting (Bash & Python)`);
             document.querySelector('section:nth-of-type(2)').scrollIntoView({ behavior: 'smooth' });
         } 
@@ -367,9 +368,11 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('section:nth-of-type(3)').scrollIntoView({ behavior: 'smooth' });
         } 
         else if (cleanCmd === '/projects' || cleanCmd === 'projects') {
-            printTerminalLine(`LOADING WAZUH INFRASTRUCTURE SPECIFICATION...
-  - Wazuh SIEM deployed via Docker Compose on Windows Subsystem for Linux 2.
-  - Features real-time log indexing, alert visuals, and attack telemetry.`);
+            printTerminalLine(`LOADING PORTFOLIO PROJECTS...
+  - [01] WAZUH_SIEM: Centralized monitoring via Docker containers in WSL2.
+  - [02] SECUREVAULT: End-to-End Encrypted Zero-Knowledge cloud storage.
+         Features client-side cryptography, digital signature login, 2FA,
+         and has passed 32 DAST scan scenarios mapping to OWASP Top 10:2025.`);
             document.querySelector('section:nth-of-type(4)').scrollIntoView({ behavior: 'smooth' });
         } 
         else if (cleanCmd === '/certs' || cleanCmd === 'certs') {
