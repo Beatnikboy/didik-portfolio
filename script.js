@@ -392,7 +392,8 @@ document.addEventListener('DOMContentLoaded', () => {
   - Personal Email: <a href="mailto:d.rabihni@gmail.com" class="text-highlight">d.rabihni@gmail.com</a>
   - Academic Email: <a href="mailto:didik.rabihni@binus.ac.id" class="text-highlight">didik.rabihni@binus.ac.id</a>
   - Phone socket: <a href="tel:+6281213304147" class="text-highlight">+62 812-1330-4147</a>
-  - LinkedIn port: <a href="https://www.linkedin.com/in/didik-rabihni-3a0600252" target="_blank" class="text-highlight">LinkedIn Profile</a>`);
+  - LinkedIn port: <a href="https://www.linkedin.com/in/didik-rabihni-3a0600252" target="_blank" class="text-highlight">LinkedIn Profile</a>
+  - GitHub port: <a href="https://github.com/Beatnikboy" target="_blank" class="text-highlight">GitHub Profile</a>`);
         } 
         else if (cleanCmd === '/clear' || cleanCmd === 'clear') {
             terminalOutput.innerHTML = '';
