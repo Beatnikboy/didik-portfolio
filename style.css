@@ -1183,8 +1183,19 @@ a.project-tag:hover {
         gap: 12px;
     }
     
+    .main-header {
+        padding: 12px 10px;
+    }
+
+    .header-left {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+        width: 100%;
+    }
+
     .cyber-socials {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     
     .terminal-shortcuts {
@@ -1193,6 +1204,48 @@ a.project-tag:hover {
     
     .arch-sub-grid {
         grid-template-columns: 1fr;
+    }
+
+    .experience-header,
+    .timeline-header,
+    .cert-header,
+    .honor-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        width: 100%;
+    }
+
+    .experience-company,
+    .experience-role,
+    .timeline-title,
+    .cert-header,
+    .honor-header {
+        width: 100%;
+    }
+
+    .experience-period,
+    .timeline-date,
+    .cert-meta,
+    .honor-date {
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-top: 2px;
+    }
+
+    .cyber-btn {
+        font-size: 11px;
+        letter-spacing: 1px;
+        padding: 8px 12px;
+    }
+    
+    .cyber-card {
+        padding: 12px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 }
 
