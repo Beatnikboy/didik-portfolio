@@ -927,6 +927,19 @@ body {
     color: var(--text-muted);
 }
 
+a.project-tag {
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+a.project-tag:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background: rgba(51, 255, 51, 0.05);
+    box-shadow: 0 0 5px var(--primary-glow);
+}
+
 .sub-card-title {
     font-size: 12px;
     letter-spacing: 1px;

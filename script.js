@@ -372,7 +372,8 @@ document.addEventListener('DOMContentLoaded', () => {
   - [01] WAZUH_SIEM: Centralized monitoring via Docker containers in WSL2.
   - [02] SECUREVAULT: End-to-End Encrypted Zero-Knowledge cloud storage.
          Features client-side cryptography, digital signature login, 2FA,
-         and has passed 32 DAST scan scenarios mapping to OWASP Top 10:2025.`);
+         and has passed 32 DAST scan scenarios mapping to OWASP Top 10:2025.
+         Repo link: <a href="https://github.com/SammyAxel/SecureVault" target="_blank" class="text-highlight">SammyAxel/SecureVault</a>`);
             document.querySelector('section:nth-of-type(4)').scrollIntoView({ behavior: 'smooth' });
         } 
         else if (cleanCmd === '/certs' || cleanCmd === 'certs') {
